@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Employés</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/auth.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Gestion des Employés</h1>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html#gestion-stock">Gestion des Stocks</a></li>
+            <li><a href="index.html#market-share">Part de Marché</a></li>
+            <li><a href="gestion-employes.html" class="active">Gestion des Employés</a></li>
+            <li><a href="facturation.html">Facturation</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section id="employee-management">
+            <h2>Gestion des Employés</h2>
+            
+            <!-- Barre de recherche -->
+            <div>
+                <label for="searchInput">Rechercher un employé :</label>
+                <input type="text" id="searchInput" placeholder="Entrez un nom ou un ID" oninput="applyFilters()">
+            </div>
+            
+            <!-- Filtres dynamiques -->
+            <div id="filters">
+                <label for="filterSexe">Filtrer par Sexe :</label>
+                <select id="filterSexe" onchange="applyFilters()">
+                    <option value="">Tous</option>
+                    <option value="M">Masculin</option>
+                    <option value="F">Féminin</option>
+                </select>
+        
+                <label for="filterQualification">Filtrer par Qualification :</label>
+                <select id="filterQualification" onchange="applyFilters()">
+                    <option value="">Toutes</option>
+                    <option value="Technicien">Technicien</option>
+                    <option value="Ingénieur">Ingénieur</option>
+                    <option value="Employé">Employé</option>
+                    <option value="Manager">Manager</option>
+                </select>
+        
+                <label for="filterSite">Filtrer par Site :</label>
+                <select id="filterSite" onchange="applyFilters()">
+                    <option value="">Tous</option>
+                    <option value="Paris">Paris</option>
+                    <option value="Lyon">Lyon</option>
+                    <option value="Marseille">Marseille</option>
+                    <option value="Toulouse">Toulouse</option>
+                </select>
+            </div>
+        
+            <!-- Résumé des totaux -->
+            <h3>Résumé des données filtrées</h3>
+            <div id="summary">
+                <p>Total Employés : <span id="totalEmployees">0</span></p>
+                <p>Moyenne d'Âge : <span id="averageAge">0</span></p>
+                <p>Salaire Brut Moyen (€) : <span id="averageSalary">0</span></p>
+                <p>Heures d'Absence Totales : <span id="totalAbsence">0</span></p>
+            </div>
+        
+            <!-- Tableau des employés -->
+            <h3>Résultats</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Salarie</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Sexe</th>
+                        <th>Âge</th>
+                        <th>Date d'intégration</th>
+                        <th>Qualification</th>
+                        <th>Site</th>
+                        <th>Salaire Brut (€)</th>
+                        <th>Heures d'Absence</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeResults">
+                    <!-- Les résultats des filtres -->
+                </tbody>
+            </table>
+        </section>        
+    </main>
+    <script src="assets/js/employee-management.js"></script> 
+</body>
+</html>

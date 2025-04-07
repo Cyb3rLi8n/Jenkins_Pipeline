@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturation</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="assets/js/auth.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Facturation</h1>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Gestion des Stocks</a></li>
+            <li><a href="index.html#market-share">Part de Marché</a></li>
+            <li><a href="gestion-employes.html">Gestion des Employés</a></li>
+            <li><a href="facturation.html" class="active">Facturation</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section id="facturation">
+            <h2>Générer une Facture</h2>
+            <div id="facturationContainer">
+                <!-- Formulaire pour saisir les données de facturation -->
+                <form id="facturationForm">
+                    <div class="form-group">
+                        <label for="prixMarchandise">Prix de la marchandise (€):</label>
+                        <input type="number" id="prixMarchandise" placeholder="Exemple : 1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="remise">Remise (%) :</label>
+                        <input type="number" id="remise" placeholder="Exemple : 10" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="escompte">Escompte (%) :</label>
+                        <input type="number" id="escompte" placeholder="Exemple : 5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fraisPort">Frais de port (€):</label>
+                        <input type="number" id="fraisPort" placeholder="Exemple : 50" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tva">TVA (%) :</label>
+                        <input type="number" id="tva" placeholder="Exemple : 20" required>
+                    </div>
+                    <button type="button" onclick="generateInvoice()">Calculer</button>
+                </form>
+                <!-- Section pour afficher la facture générée -->
+                <div id="factureResult">
+                    <h3>Facture Générée</h3>
+                    <p><strong>Total HT (€) :</strong> <span id="totalHT">0.00</span></p>
+                    <p><strong>TVA (€) :</strong> <span id="totalTVA">0.00</span></p>
+                    <p><strong>Total TTC (€) :</strong> <span id="totalTTC">0.00</span></p>
+                    <p><strong>Net à Payer (€) :</strong> <span id="netAPayer">0.00</span></p>
+                    <button onclick="exportToExcel()">Exporter en Excel</button>
+                </div>
+            </div>
+        </section>        
+    </main>
+    <script src="assets/js/facturation.js"></script>
+</body>
+</html>

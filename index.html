@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail Entreprise</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/auth.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Portail Entreprise</h1>
+    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#dashboard">Gestion des Stocks</a></li>
+            <li><a href="#market-share">Part de Marché</a></li>
+            <li><a href="gestion-employes.html" class="active">Gestion des Employés</a></li>
+            <li><a href="facturation.html">Facturation</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <section id="gestion-stock">
+            <form id="stockForm">
+                <h3>Formulaire de Gestion des Stocks</h3>
+                <div class="form-group">
+                    <label for="productName">Nom du produit:</label>
+                    <input type="text" id="productName" placeholder="Exemple : Produit A" required>
+                </div>
+                <div class="form-group">
+                    <label for="initialStock">Stock initial:</label>
+                    <input type="number" id="initialStock" min="0" placeholder="Quantité initiale" required>
+                </div>
+                <div class="form-group">
+                    <label for="purchases">Achats:</label>
+                    <input type="number" id="purchases" min="0" placeholder="Quantité achetée" required>
+                </div>
+                <div class="form-group">
+                    <label for="sales">Ventes:</label>
+                    <input type="number" id="sales" min="0" placeholder="Quantité vendue" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix de vente (par unité):</label>
+                    <input type="number" id="price" min="0" step="0.01" placeholder="Prix en €" required>
+                </div>
+                <button type="button" onclick="addStockEntry()">Ajouter</button>
+            </form>
+        
+            <div id="stockTable">
+                <h3>Suivi des Stocks</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom du Produit</th>
+                            <th>Stock Initial</th>
+                            <th>Achats</th>
+                            <th>Ventes</th>
+                            <th>Prix de Vente (€)</th>
+                            <th>Chiffre d'Affaires (€)</th>
+                            <th>Stock Restant</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockBody">
+                        <!-- Les lignes insérées ici dynamiquement -->
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td><strong>Total / Moyenne</strong></td>
+                            <td>-</td>
+                            <td id="totalPurchases">0</td>
+                            <td id="totalSales">0</td>
+                            <td id="averagePrice">0.00 €</td>
+                            <td id="totalRevenue">0.00 €</td>
+                            <td>-</td>
+                            <td>-</td> <!-- Vide pour les actions -->
+                        </tr>
+                    </tfoot>
+                </table>                
+            </div>
+        </section>
+        <!-- Calcul part de maché -->
+        <section id="market-share">
+            <h2>Part de Marché</h2>
+            <div class="market-grid-horizontal">
+                <form id="marketForm">
+                    <div class="form-group">
+                        <label for="companyName">Nom de l'Entreprise:</label>
+                        <input type="text" id="companyName" placeholder="Exemple : Entreprise A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyRevenue">Chiffre d'Affaires (€):</label>
+                        <input type="number" id="companyRevenue" min="0" placeholder="Exemple : 50000" required>
+                    </div>
+                    <button type="button" onclick="addCompany()">Ajouter</button>
+                </form>
+                <div id="marketTable">
+                    <h3>Répartition du Chiffre d'Affaires</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom de l'Entreprise</th>
+                                <th>Chiffre d'Affaires (€)</th>
+                                <th>Part de Marché (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marketBody">
+                            <!-- Les données seront insérées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="marketChartContainer">
+                    <h3>Graphique de Répartition</h3>
+                    <canvas id="marketChart"></canvas>
+                </div>
+            </div>
+        </section>                 
+    </main>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
