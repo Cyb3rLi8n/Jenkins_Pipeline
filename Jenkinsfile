@@ -21,5 +21,12 @@ pipeline {
                 sh 'cp -r * /var/www/html/'
             }
         }
+
+        stage('Redémarrage Apache') {
+            steps {
+                echo 'Redémarrage d\'Apache avec service...'
+                sh 'sudo /usr/sbin/service apache2 restart'
+            }
+        }
     }
 }
