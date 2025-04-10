@@ -15,12 +15,10 @@ pipeline {
             }
         }
 
-        stage('Déploiement local simulé') {
+        stage('Déploiement Apache') {
             steps {
-                echo 'Copie des fichiers dans le dossier deploy/'
-                sh 'mkdir -p deploy'
-                sh 'cp -r *.html *.css *.js deploy/'
-                sh 'ls -l deploy'
+                echo 'Déploiement dans Apache (/var/www/html/)'
+                sh 'sudo cp -r *.html *.css *.js /var/www/html/'
             }
         }
     }
