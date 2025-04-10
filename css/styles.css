@@ -1,0 +1,285 @@
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li, a, button, table, th, td, input, label {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de la page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+.header {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0056b3;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Section Gestion des Stocks */
+#gestion-stock {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes : Formulaire et Tableau */
+    gap: 20px; /* Espacement entre les colonnes */
+    align-items: start; /* Aligner les deux colonnes en haut */
+    margin-top: 20px;
+}
+
+#stockForm {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#stockTable {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f9;
+    font-weight: bold;
+}
+
+/* Résultats */
+.result {
+    margin-top: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Part de Marché */
+#market-share {
+    margin-top: 40px;
+}
+
+/* Grille horizontale */
+.market-grid-horizontal {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr; /* Formulaire (1/5), Tableau (2/5), Graphique (2/5) */
+    gap: 20px; /* Espace entre les colonnes */
+    align-items: start; /* Aligner les éléments en haut */
+}
+
+/* Formulaire Part de Marché */
+#marketForm {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tableau */
+#marketTable {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Graphique */
+#marketChartContainer {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#marketChart {
+    max-width: 250px; /* Taille du graphique */
+    max-height: 250px;
+    margin: 0 auto; /* Centrer le graphique */
+}
+
+/* Boutons */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Inputs */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#employee-management {
+    margin-top: 40px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+#filters label {
+    font-weight: bold;
+}
+
+#filters select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#filters, #searchInput {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+#filters label, #searchInput {
+    font-weight: bold;
+}
+
+#filters select, #searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#summary {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#summary p {
+    margin: 5px 0;
+}
+
+/* Conteneur principal pour le formulaire et les résultats */
+#facturationContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    gap: 20px; /* Espacement entre les colonnes */
+    align-items: start; /* Aligner les éléments en haut */
+}
+
+/* Formulaire */
+#facturationForm {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Section des résultats */
+#factureResult {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Résultats de la facture */
+#factureResult p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
