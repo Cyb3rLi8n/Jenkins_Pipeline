@@ -18,21 +18,21 @@ pipeline {
         stage('Nettoyage Apache') {
             steps {
                 echo '🧹 Suppression des anciens fichiers...'
-                sh 'sudo rm -rf /var/www/html/*'
+                sh 'rm -rf /var/www/html/*'
             }
         }
 
         stage('Déploiement Apache') {
             steps {
                 echo '🚀 Déploiement dans /var/www/html/'
-                sh 'sudo cp -r * /var/www/html/'
+                sh 'cp -r * /var/www/html/'
             }
         }
 
         stage('Redémarrage Apache') {
             steps {
                 echo '🔁 Redémarrage du serveur Apache...'
-                sh 'sudo /usr/sbin/service apache2 restart'
+                sh '/usr/sbin/service apache2 restart'
             }
         }
 
