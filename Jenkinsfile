@@ -32,7 +32,7 @@ pipeline {
         stage('Redémarrage Apache') {
             steps {
                 echo '🔁 Redémarrage du serveur Apache...'
-                sh '/usr/sbin/service apache2 restart'
+                sh 'sudo /usr/sbin/service apache2 restart'
             }
         }
 
