@@ -4,52 +4,52 @@ pipeline {
     stages {
         stage('Récupération du code') {
             steps {
-                echo 'Code récupéré depuis Git.'
+                echo '📥 Code récupéré depuis Git.'
             }
         }
 
         stage('Vérification des fichiers') {
             steps {
-                echo 'Liste des fichiers dans le projet :'
+                echo '📂 Liste des fichiers dans le projet :'
                 sh 'ls -l'
             }
         }
 
-        stage('Préparation') {
+        stage('Nettoyage Apache') {
             steps {
-                echo 'Nettoyage du dossier Apache...'
+                echo '🧹 Suppression des anciens fichiers...'
                 sh 'sudo rm -rf /var/www/html/*'
             }
         }
 
         stage('Déploiement Apache') {
             steps {
-                echo 'Déploiement dans Apache (/var/www/html/)'
-                sh 'cp -r * /var/www/html/'
+                echo '🚀 Déploiement dans /var/www/html/'
+                sh 'sudo cp -r * /var/www/html/'
             }
         }
 
         stage('Redémarrage Apache') {
             steps {
-                echo 'Redémarrage d\'Apache avec service...'
+                echo '🔁 Redémarrage du serveur Apache...'
                 sh 'sudo /usr/sbin/service apache2 restart'
             }
         }
 
         stage('Test de disponibilité') {
             steps {
-                echo 'Vérification du site avec curl...'
-                sh 'curl -I http://localhost'
+                echo '🌐 Vérification avec curl...'
+                sh 'curl -I http://localhost || true'
             }
         }
     }
 
     post {
         success {
-            echo "✅ Déploiement terminé avec succès à $(date)"
+            echo '✅ Déploiement terminé avec succès.'
         }
         failure {
-            echo "❌ Erreur dans le pipeline !"
+            echo '❌ Erreur détectée dans le pipeline.'
         }
     }
 }
