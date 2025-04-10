@@ -18,7 +18,7 @@ pipeline {
         stage('Déploiement Apache') {
             steps {
                 echo 'Déploiement dans Apache (/var/www/html/)'
-                sh 'sudo cp -r *.html *.css *.js /var/www/html/'
+                sh 'cp -r *.html *.css *.js /var/www/html/'
             }
         }
     }
